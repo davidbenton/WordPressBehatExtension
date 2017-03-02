@@ -20,9 +20,12 @@ class WordPressEditPostContext implements Context
     public function iGoToEditScreenForPostType($postType, $title)
     {
         $post = $this->getPostByName($title, $postType);
-        $this->editPostPage->open(array(
-            'id' => $post->ID,
-        ));
+        $this->editPostPage->open(
+          array(
+            'id' => $post->ID
+          ),
+          $postType
+        );
     }
 
     /**
@@ -59,9 +62,12 @@ class WordPressEditPostContext implements Context
     public function iAmOnEditScreenForPostType($postType, $title)
     {
         $post = $this->getPostByName($title, $postType);
-        $this->editPostPage->isOpen(array(
-            'id' => $post->ID,
-        ));
+        $this->editPostPage->open(
+          array(
+            'id' => $post->ID
+          ),
+          $postType
+        );
     }
 
     /**
